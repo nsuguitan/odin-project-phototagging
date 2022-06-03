@@ -14,8 +14,9 @@ export default function Dropdown() {
     setOpen(false);
   };
 
-  document.getElementById("game-image").addEventListener("click", handleClick);
-
+  window.onload = function () {
+    document.getElementById("game-image").addEventListener("click", handleClick);
+  }
   return (
     <div>
       <Menu
