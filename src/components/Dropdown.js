@@ -5,16 +5,16 @@ import MenuItem from '@mui/material/MenuItem';
 export default function Dropdown() {
   const [anchorPosition, setAnchorPosition] = React.useState({ left: 0, top: 0 });
   const [open, setOpen] = React.useState(false);
+
   const handleClick = (event) => {
     setAnchorPosition({left:event.pageX, top:event.pageY});
     setOpen(true);
   };
   const handleClose = () => {
-    setAnchorPosition(null);
     setOpen(false);
   };
 
-  document.addEventListener("click", handleClick);
+  document.getElementById("game-image").addEventListener("click", handleClick);
 
   return (
     <div>
@@ -23,7 +23,6 @@ export default function Dropdown() {
         anchorReference='anchorPosition'
         anchorPosition={anchorPosition}
         open={open}
-        onClose={handleClose}
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}

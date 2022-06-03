@@ -13,10 +13,14 @@ code {
 }
 
 * {
-  cursor: none !important;
+  cursor: none;
 }
 
 #game-image{
   width: 100%;
   height: auto;
+}
+
+#basic-menu{
+  cursor: auto !important;
 }
