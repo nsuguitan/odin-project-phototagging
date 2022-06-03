@@ -3,7 +3,6 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
 export default function Dropdown() {
-  console.log("Hello Hello")
   const [anchorPosition, setAnchorPosition] = React.useState({ left: 0, top: 0 });
   const [open, setOpen] = React.useState(false);
   const handleClick = (event) => {
