@@ -12,15 +12,28 @@ code {
     monospace;
 }
 
-* {
-  cursor: none;
-}
-
 #game-image{
   width: 100%;
   height: auto;
 }
 
-#basic-menu{
-  cursor: auto !important;
+
+.menuButton{
+height: 500px;
+width: 800px;
+overflow: hidden;
+}
+
+.menuImage{
+  width: 100%;
+  height:auto;
+  
+}
+
+.slider-container{
+  transform: translateY(50%);
+}
+
+.slide{
+  text-align: center !important;
 }

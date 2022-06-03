@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react"; 
 import useMousePosition from "../hooks/useMousePosition";
 
 const Cursor = () => {
     const { clientX, clientY} = useMousePosition();
+    const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const handleMouseEnter = () => setIsVisible(true);
+    const handleMouseLeave = () => setIsVisible(false);
+    document.body.addEventListener("mouseenter", handleMouseEnter);
+    document.body.addEventListener("mouseleave", handleMouseLeave);
+    return () => {
+      document.body.removeEventListener("mouseenter",   handleMouseEnter);
+      document.body.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
 
     return(
-       <div
-        style={{
-            position: "fixed",
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0,
-            zIndex: 0,
-            pointerEvents: "none"
-        }} //div is the entire viewport
-       >
            <svg
             width={50} 
             height={50} 
@@ -45,7 +46,6 @@ const Cursor = () => {
                 fill="red" 
                />
            </svg>
-       </div> 
     );
 };
 export default Cursor;
