@@ -31,17 +31,17 @@ const Cursor = () => {
                 cx="25" 
                 cy="25" 
                 r="8"
-                fill-opacity="0" 
+                fillOpacity={0}
                 stroke= "black"
-                stroke-width= "1"
-                stroke-dasharray="5,5"
+                strokeWidth={1}
+                strokeDasharray="5,5"
 
                />
                <circle 
                 cx="25" 
                 cy="25" 
                 r="1"
-                fill-opacity="1" 
+                fillOpacity={1} 
                 fill="red" 
                />
            </svg>
