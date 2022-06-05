@@ -10,7 +10,7 @@ const GameImage = () => {
     });
 
     return(
-        <div id="image-container" onMouseEnter={toggleCursor} onMouseLeave={toggleCursor}>
+        <div id="gameImage-container" className="gameImage-container" onMouseEnter={toggleCursor} onMouseLeave={toggleCursor}>
             <img id="game-image" src="./images/pokemon-level1.jpeg" alt='oops'></img>
         </div>
     )

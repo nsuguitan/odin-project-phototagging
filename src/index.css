@@ -17,6 +17,9 @@ code {
   height: auto;
 }
 
+#gameplay-container{
+  cursor:none;
+}
 
 .menuButton{
 height: 500px;

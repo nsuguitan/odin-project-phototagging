@@ -9,7 +9,7 @@ export default function Dropdown() {
 
     const handleClick = (event) => {
         setAnchorPosition({left:event.pageX, top:event.pageY});
-        setOpen(true);
+        setOpen(prevState => !prevState);
     };
     const handleClose = () => {
         setOpen(false);
@@ -34,6 +34,7 @@ export default function Dropdown() {
             id="basic-menu"
             anchorReference='anchorPosition'
             anchorPosition={anchorPosition}
+            onClick={handleClose}
             open={open}
             MenuListProps={{
             'aria-labelledby': 'basic-button',
