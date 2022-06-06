@@ -45,9 +45,9 @@ export default function Dropdown() {
         window.addEventListener("scroll", handleScroll, { passive: true });
         
         // remove the event listener when the component is unmounted
-        return () =>
-            document.getElementById("gameplay-container").removeEventListener("click", handleClick);
-            // document.removeEventListener("scroll", handleScroll);
+        //return () =>
+            //document.getElementById("gameplay-container").removeEventListener("click", handleClick);
+            //document.removeEventListener("scroll", handleScroll);
     }, [handleClick,handleScroll]);
     
 

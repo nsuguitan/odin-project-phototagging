@@ -1,16 +1,14 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
+import { Button } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
-import MoreIcon from '@mui/icons-material/MoreVert';
 import { Card, CardMedia } from '@mui/material';
-import { Image } from '@mui/icons-material';
-import { Grid, Row, Col } from '@mui/material';
+import { Grid } from '@mui/material';
+import Timer from './GameTimer';
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   alignItems: 'flex-start',
@@ -66,19 +64,20 @@ export default function Appbar() {
                                 porygon
                             </Typography>
                         </Card>
-                </Grid>                
+                </Grid> 
+                <Grid item xs={6} id="timer-card">
+                    <Card>
+                        <Timer />
+                    </Card>
+                </Grid>
+                <Grid item id="return-menu-button">
+                    <Link style={{textDecoration: "none", color: "white"}} to='/Menu'>
+                        <Button variant="text" color="inherit">
+                            Return to Menu    
+                        </Button>
+                    </Link>
+                </Grid>               
             </Grid>
-            <IconButton size="large" aria-label="search" color="inherit">
-                <SearchIcon />
-            </IconButton>
-            <IconButton
-                size="large"
-                aria-label="display more actions"
-                edge="end"
-                color="inherit"
-            >
-                <MoreIcon />
-            </IconButton>
         </StyledToolbar>
       </AppBar>
     </Box>

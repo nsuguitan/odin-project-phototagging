@@ -41,3 +41,37 @@ overflow: hidden;
 .slide{
   text-align: center !important;
 }
+
+.timer-container{
+  display:inline-flex;
+  width:100%;
+}
+
+#pause-button{
+  position: relative;
+  margin-left: auto;
+  right:0;
+  padding: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+#timer{
+  position: relative;
+  margin-left: 35%;
+  color: red;
+}
+
+#timer-card{
+  position: relative;
+  top: 18%;
+  transform: translate(0, 18%);
+}
+
+#return-menu-button{
+  position: relative;
+  top: 30%;
+  transform: translate(0, 30%);
+  margin-left: auto;
+}
