@@ -5,23 +5,25 @@ import { useState, useEffect } from "react"
 
 const useMousePosition = () => {
     const [position, setPosition] = useState({
-        clientX: 0,
-        clientY: 0,
+        pageX: 0,
+        pageY: 0,
     });
 
     const updatePosition = event => {
         const { pageX, pageY, clientX, clientY } = event;
 
-        setPosition({ clientX, clientY, });
+        setPosition({ pageX, pageY, });
     };
 
     //similar to componentDidMount and componentDidUpdate
     useEffect(() => {
         //eventListener for movement of the mouse, with (type, listener, no options)
-        document.addEventListener("mousemove", updatePosition, false)
+        document.addEventListener("mousemove", updatePosition, false);
+        //document.addEventListener("scroll", updatePosition, false);
 
         return () => {
-            document.removeEventListener("mousemove", updatePosition)
+            document.removeEventListener("mousemove", updatePosition);
+            //document.addEventListener("scroll", updatePosition);
         }
     }, []);//this will run once on mount
     

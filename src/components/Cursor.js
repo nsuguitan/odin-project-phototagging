@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import useMousePosition from "../hooks/useMousePosition";
 
 const Cursor = () => {
-    const { clientX, clientY} = useMousePosition();
+    const { pageX, pageY} = useMousePosition();
     const [isVisible, setIsVisible] = useState(false);
   
   useEffect(() => {
@@ -23,8 +23,8 @@ const Cursor = () => {
             viewBox="0 0 50 50" 
             style={{
                 position: "absolute", 
-                left: clientX,
-                top: clientY,
+                left: pageX,
+                top: pageY,
                 transform: "translate(-50%, -50%) scale(2.5)"   
             }}
            >
