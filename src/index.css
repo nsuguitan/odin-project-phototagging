@@ -26,6 +26,7 @@ code {
 height: 500px;
 width: 800px;
 overflow: hidden;
+border-radius: 50%;
 }
 
 .menuImage{
@@ -34,8 +35,13 @@ overflow: hidden;
   
 }
 
+.carousel-container{
+  background-color:red;
+}
+
 .slider-container{
   transform: translateY(50%);
+  background-color: black;
 }
 
 .slide{

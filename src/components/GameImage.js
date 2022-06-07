@@ -1,9 +1,14 @@
 import React, { useContext, useCallback } from "react";
 import { CursorContext } from "../contexts/CursorContextProvider";
-import Dropdown from "./Dropdown";
+import { useImage } from "../contexts/GameImageContext";
 
 const GameImage = () => {
     const [, setCursor] = useContext(CursorContext);
+    const { 
+        state:{imageURL},
+        dispatch,
+    } = useImage();
+    
 
     const toggleCursor = useCallback(() => {
         setCursor(({ active }) => ({ active: !active }));
@@ -11,7 +16,7 @@ const GameImage = () => {
 
     return(
         <div id="gameImage-container" className="gameImage-container" onMouseEnter={toggleCursor} onMouseLeave={toggleCursor}>
-            <img id="game-image" src="./images/pokemon-level1.jpeg" alt='oops'></img>
+            <img id="game-image" src={imageURL} alt='oops'></img>
         </div>
     )
 };
