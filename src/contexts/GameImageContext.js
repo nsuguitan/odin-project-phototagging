@@ -9,21 +9,24 @@ function GameImageReducer(state, action) {
             return {
                 imageURL: './images/pokemon-level1.jpeg',
                 pokemon:['sudowoodo', 'dratini', 'porygon'],
-                docId:'UJXFiADH1PbHgpTIY5cH'
+                docId:'UJXFiADH1PbHgpTIY5cH',
+                foundPokemon:[]
             }
         }
         case 'SELECT_GAME_2': {
             return {
                 imageURL: './images/pokemon-level2.webp',
                 pokemon:['squirtle', 'chansey', 'magikarp'],
-                docId:'UJXFiADH1PbHgpTIY5cH'
+                docId:'UJXFiADH1PbHgpTIY5cH',
+                foundPokemon:[]
             }
         }
         case 'SELECT_GAME_3': {
             return {
                 imageURL: './images/pokemon-level3.jpeg',
                 pokemon:['sudowoodo', 'golbat', 'cubone'],
-                docId:'UJXFiADH1PbHgpTIY5cH'
+                docId:'UJXFiADH1PbHgpTIY5cH',
+                foundPokemon:[]
             }
             
         }
