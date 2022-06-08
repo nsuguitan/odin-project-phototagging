@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import { Card, CardMedia } from '@mui/material';
 import { Grid } from '@mui/material';
 import Timer from './GameTimer';
+import { useImage } from '../contexts/GameImageContext';
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   alignItems: 'flex-start',
@@ -21,6 +22,11 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 }));
 
 export default function Appbar() {
+    const { 
+        state:{pokemon},
+        dispatch,
+    } = useImage();
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
@@ -31,11 +37,11 @@ export default function Appbar() {
                             <CardMedia
                             component="img"
                             height="80"
-                            image="./images/sudowoodo.png"
-                            alt="sudowoodo"
+                            image={`./images//${pokemon[0]}.png`}
+                            alt="oops"
                             />
                             <Typography gutterBottom variant="body2" component="div">
-                                Sudowoodo
+                                {pokemon[0]}
                             </Typography>
                         </Card>
                 </Grid>
@@ -44,11 +50,11 @@ export default function Appbar() {
                             <CardMedia
                             component="img"
                             height="80"
-                            image="./images/dratini.webp"
-                            alt="dratini"
+                            image={`./images//${pokemon[1]}.png`}
+                            alt="oops"
                             />
                             <Typography gutterBottom variant="body2" component="div">
-                                dratini
+                                {pokemon[1]}
                             </Typography>
                         </Card>
                 </Grid>
@@ -57,11 +63,11 @@ export default function Appbar() {
                             <CardMedia
                             component="img"
                             height="80"
-                            image="./images/porygon.png"
-                            alt="porygon"
+                            image={`./images//${pokemon[2]}.png`}
+                            alt="oops"
                             />
                             <Typography gutterBottom variant="body2" component="div">
-                                porygon
+                                {pokemon[2]}
                             </Typography>
                         </Card>
                 </Grid> 
