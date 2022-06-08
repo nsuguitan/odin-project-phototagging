@@ -9,7 +9,7 @@ import { GameImageProvider } from './contexts/GameImageContext';
 
 function App() {
   return (
-      <Context>
+      //<Context>
         <GameImageProvider>
       <BrowserRouter>
           <Routes>
@@ -19,7 +19,7 @@ function App() {
           </Routes>
         </BrowserRouter>
         </GameImageProvider>
-        </Context>      
+        //</Context>      
     
   );
 }

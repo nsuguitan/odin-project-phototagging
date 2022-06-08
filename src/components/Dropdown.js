@@ -2,15 +2,27 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { useImage } from '../contexts/GameImageContext';
 
 export default function Dropdown() {
     const [anchorPosition, setAnchorPosition] = React.useState({ left: 0, top: 0 });
     const [scrollPosition, setScrollPosition] = React.useState({ scLeft: 0, scTop: 0 });
     const [open, setOpen] = React.useState(false);
 
-    
+    const { 
+        state:{pokemon},
+        dispatch,
+    } = useImage();
+
+
     const handleClose = () => {
         setOpen(false);
+        
+    };
+
+    const handleSelect = (event,name) => {
+        console.log("Pokemon:",name);
+        
     };
 
 
@@ -65,9 +77,9 @@ export default function Dropdown() {
             'aria-labelledby': 'basic-button',
             }}
         >
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
+            <MenuItem onClick={event => handleSelect(event,pokemon[0])}>{pokemon[0]}</MenuItem>
+            <MenuItem onClick={event => handleSelect(event,pokemon[1])}>{pokemon[1]}</MenuItem>
+            <MenuItem onClick={event => handleSelect(event,pokemon[2])}>{pokemon[2]}</MenuItem>
         </Menu>
         </div>
     );
