@@ -2,14 +2,14 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GamePlay from './components/GamePlay';
 import GameStartMenu from './components/GameStartMenu';
-import Context from './contexts/GameContext';
 import { GameImageProvider } from './contexts/GameImageContext';
+import MenuContextProvider from './contexts/GameMenuContext';
 
 
 
 function App() {
   return (
-      //<Context>
+        <MenuContextProvider>
         <GameImageProvider>
       <BrowserRouter>
           <Routes>
@@ -19,7 +19,7 @@ function App() {
           </Routes>
         </BrowserRouter>
         </GameImageProvider>
-        //</Context>      
+        </MenuContextProvider>
     
   );
 }

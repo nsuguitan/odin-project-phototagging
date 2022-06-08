@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
 }
 
 code {
@@ -13,9 +14,10 @@ code {
 }
 
 #game-image{
-  width: 100%;
+  width: 1792px;
   height: auto;
   margin-top: 100px;
+  overflow-x: auto;
 }
 
 /* #gameplay-container{
@@ -34,8 +36,11 @@ overflow: hidden;
   border-radius: 50%;
 }
 
+.gameImage-container{
+  background-color: black;
+}
 .carousel-container{
-  background-color:red;
+  background-color: black;
 }
 
 .slider-container{
