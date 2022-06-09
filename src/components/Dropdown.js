@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useImage } from '../contexts/GameImageContext';
 import { doc, getDoc, getFirestore, collection } from "firebase/firestore";
 import { MenuContext } from "../contexts/GameMenuContext";
-import {$,jQuery} from 'jquery';
 
 export default function Dropdown({anchorPosition,scrollPosition}) {
     const [menuOpen, setMenuOpen] = useContext(MenuContext);

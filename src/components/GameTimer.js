@@ -6,19 +6,34 @@ import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import { useState, useRef, useEffect } from "react";
 import { formatTime } from "../utils/formatTime";
 import { useImage } from "../contexts/GameImageContext";
+import { doc, getDoc, getFirestore, collection, updateDoc, arrayUnion, deleteField } from "firebase/firestore";
+import { TempleBuddhist } from "@mui/icons-material";
 
 const Timer = () => {
     const [timer, setTimer] = useState(0);
     const [isPaused, setIsPaused] = useState(true);
     const countRef = useRef(null);
+    const [gameComplete, setGameComplete] = useState(false);
     const { 
-        state:{foundPokemon},
+        state:{foundPokemon, level},
     } = useImage();
+    const highScoresRef = doc(collection(getFirestore(), 'GameLevels'), "highScoresCompiled");
+
 
     useEffect(() => {
-        //console.log("Hello")
+        if(foundPokemon.length === 3){
+            clearInterval(countRef.current);
+            let timerString = "Completed in: " + formatTime(timer);
+            document.getElementById("timer").innerHTML = timerString;
+            document.getElementById("timer").style.color = "Green"
+            console.log("We did it!");
+            if(!gameComplete){
+                addHighScore();
+                setGameComplete(true);
+            };
+        };
         handlePause();
-      }, []);
+      }, [foundPokemon.length]);
 
     const handlePause = () => {
         if(isPaused){
@@ -34,12 +49,32 @@ const Timer = () => {
         }
     };
 
+    const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-        if(foundPokemon.length === 3){
-            clearInterval(countRef.current);
-            document.getElementById("timer").innerHTML = "Completed in: " + formatTime(timer)
-            document.getElementById("timer").style.color = "Green"
+    function generateString(length) {
+        let result = ' ';
+        const charactersLength = characters.length;
+        for ( let i = 0; i < length; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
         }
+
+        return result;
+    }
+
+    const addHighScore = async() => {
+        console.log("Data to load --> level: "+ level +" timer: "+ timer);
+        const docSnap = await getDoc(highScoresRef);
+        console.log("Doc", docSnap.data());
+        let newField = generateString(3)+"-"+level;
+        var obj = {};
+        obj[newField] = timer;
+         await updateDoc(highScoresRef, obj);
+    }
+
+
+
+
+
   
 
     // const handleReset = () => {

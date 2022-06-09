@@ -26,7 +26,7 @@ const GamePlay = () => {
             // console.log("How much horizontal?", window.scrollX)
             // console.log("How much?", window.scrollY)
             setScrollPosition({scLeft:window.scrollX, scTop:window.scrollY});
-            console.log("New pos?", scrollPosition)
+            //console.log("New pos?", scrollPosition)
             
         };
 
