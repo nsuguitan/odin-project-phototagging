@@ -5,11 +5,15 @@ import PauseCircleOutlineIcon from '@mui/icons-material/PauseCircleOutline';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import { useState, useRef, useEffect } from "react";
 import { formatTime } from "../utils/formatTime";
+import { useImage } from "../contexts/GameImageContext";
 
 const Timer = () => {
     const [timer, setTimer] = useState(0);
     const [isPaused, setIsPaused] = useState(true);
     const countRef = useRef(null);
+    const { 
+        state:{foundPokemon},
+    } = useImage();
 
     useEffect(() => {
         //console.log("Hello")
@@ -30,6 +34,12 @@ const Timer = () => {
         }
     };
 
+
+        if(foundPokemon.length === 3){
+            clearInterval(countRef.current);
+            document.getElementById("timer").innerHTML = "Completed in: " + formatTime(timer)
+            document.getElementById("timer").style.color = "Green"
+        }
   
 
     // const handleReset = () => {
