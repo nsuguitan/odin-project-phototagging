@@ -23,7 +23,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 
 export default function Appbar() {
     const { 
-        state:{pokemon},
+        state:{pokemon,foundPokemon},
         dispatch,
     } = useImage();
 
@@ -37,7 +37,7 @@ export default function Appbar() {
                             <CardMedia
                             component="img"
                             height="80"
-                            image={`./images//${pokemon[0]}.png`}
+                            image={foundPokemon.includes(pokemon[0]) ? './images/pokeball.png' : `./images//${pokemon[0]}.png`}
                             alt="oops"
                             />
                             <Typography gutterBottom variant="body2" component="div">
@@ -50,7 +50,7 @@ export default function Appbar() {
                             <CardMedia
                             component="img"
                             height="80"
-                            image={`./images//${pokemon[1]}.png`}
+                            image={foundPokemon.includes(pokemon[1]) ? './images/pokeball.png' : `./images//${pokemon[1]}.png`}
                             alt="oops"
                             />
                             <Typography gutterBottom variant="body2" component="div">
@@ -63,7 +63,7 @@ export default function Appbar() {
                             <CardMedia
                             component="img"
                             height="80"
-                            image={`./images//${pokemon[2]}.png`}
+                            image={foundPokemon.includes(pokemon[2]) ? './images/pokeball.png' : `./images//${pokemon[2]}.png`}
                             alt="oops"
                             />
                             <Typography gutterBottom variant="body2" component="div">

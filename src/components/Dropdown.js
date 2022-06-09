@@ -5,6 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { useImage } from '../contexts/GameImageContext';
 import { doc, getDoc, getFirestore, collection } from "firebase/firestore";
 import { MenuContext } from "../contexts/GameMenuContext";
+import {$,jQuery} from 'jquery';
 
 export default function Dropdown({anchorPosition,scrollPosition}) {
     const [menuOpen, setMenuOpen] = useContext(MenuContext);
@@ -26,7 +27,7 @@ export default function Dropdown({anchorPosition,scrollPosition}) {
             const docSnap = await getDoc(docRef);
             console.log("doc:", docSnap.data())
             console.log("doc:", docSnap.data()[name])
-            if(verifyFind(docSnap.data()[name])){
+            if(verifyFind(docSnap.data()[name]) && !(foundPokemon.includes(name)) ){
                 foundPokemon.push(name);
                 };  
         }
