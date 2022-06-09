@@ -6,6 +6,7 @@ import Appbar from "./Appbar";
 import { CssBaseline } from "@mui/material";
 import { useEffect, useState, useContext } from "react";
 import { MenuContext } from "../contexts/GameMenuContext";
+import { useImage } from '../contexts/GameImageContext';
 
 const GamePlay = () => {
     const [anchorPosition, setAnchorPosition] = useState({ left: 0, top: 0 });
@@ -47,8 +48,10 @@ const GamePlay = () => {
         document.getElementById("gameplay-container").addEventListener("click", handleClick);
         window.addEventListener("scroll", handleScroll);
          return () =>{
-                  document.getElementById("gameplay-container").removeEventListener("click", handleClick);
-                  window.removeEventListener("scroll", handleScroll);
+                  if(document.getElementById("gameplay-container")){
+                    document.getElementById("gameplay-container").removeEventListener("click", handleClick);
+                  }
+                  //window.removeEventListener("scroll", handleScroll);
          };
     });
 return(
