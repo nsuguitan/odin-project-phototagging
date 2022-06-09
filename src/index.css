@@ -28,12 +28,34 @@ code {
 height: 500px;
 width: 800px;
 overflow: hidden;
+margin: 100px;
 }
 
-.menuImage{
+.menuButton img.menuBallImage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 500px;
+  height:100%;
+  transform: translateX(30%);
+}
+.menuButton img.menuImage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   width: 500px;
   height:100%;
   border-radius: 50%;
+  transform: translateX(30%);
+  opacity: 0;
+  transition: opacity .2s;
+}
+.menuButton:hover img.menuImage {
+  opacity: 1;
 }
 
 .gameImage-container{
