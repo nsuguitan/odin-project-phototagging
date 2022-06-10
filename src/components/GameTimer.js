@@ -19,10 +19,12 @@ const Timer = () => {
     } = useImage();
     const highScoresRef = doc(collection(getFirestore(), 'GameLevels'), "highScoresCompiled");
 
-
+    useEffect(() => {handlePause();},[])
     useEffect(() => {
         if(foundPokemon.length === 3){
+            setIsPaused(true);
             clearInterval(countRef.current);
+            document.getElementById("pause-button").disabled = true;
             let timerString = "Completed in: " + formatTime(timer);
             document.getElementById("timer").innerHTML = timerString;
             document.getElementById("timer").style.color = "Green"
@@ -32,11 +34,16 @@ const Timer = () => {
                 setGameComplete(true);
             };
         };
-        handlePause();
       }, [foundPokemon.length]);
 
     const handlePause = () => {
-        if(isPaused){
+        if(foundPokemon.length === 3){
+
+            document.getElementById("pause-button").disabled = true;
+            setIsPaused(true);
+            clearInterval(countRef.current);
+        }
+        else if(isPaused){
             console.log("Howdy")
             setIsPaused(false);
             countRef.current = setInterval(() => {
